@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="contract_report_action" model="ir.actions.report">
+            <field name="name">Member Contract</field>
+            <field name="print_report_name">(object.name)</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bmb_templates.contract_pdf</field>
+            <field name="report_file">bmb_templates.contract_pdf</field>
+            <field name="paperformat_id" ref="bmb_templates.paperformat_bmb"/>
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>

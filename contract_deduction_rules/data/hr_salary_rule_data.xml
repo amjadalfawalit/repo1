@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_salary_rule_social_security" model="hr.salary.rule">
+            <field name="name">Social Security</field>
+            <field name="sequence" eval="104"/>
+            <field name="code">SS</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="struct_id" ref="hr_base_salary_structure.hr_payroll_salary_structure_emp_base"/>
+            <field name="amount_python_compute">result = - contract.social_security_amount</field>
+        </record>
+
+        <record id="hr_salary_rule_social_insurance" model="hr.salary.rule">
+            <field name="name">Social Insurance</field>
+            <field name="sequence" eval="105"/>
+            <field name="code">SI</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="struct_id" ref="hr_base_salary_structure.hr_payroll_salary_structure_emp_base"/>
+            <field name="amount_python_compute">result = - contract.social_insurance_amount</field>
+        </record>
+
+    </data>
+</odoo>

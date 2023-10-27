@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- <record id="view_stock_location_log_form" model="ir.ui.view">
+            <field name="name">stock.location.log.form</field>
+            <field name="model">stock.location.log</field>
+            <field name="arch" type="xml">
+                <form string="Location Moves" class="o_employee_form">
+                    <sheet string="Log Moves">
+                        <div class="oe_title pr-0">
+                            <h1 class="d-flex flex-row justify-content-between">
+                                <field name="adress" required="1"/>
+                            </h1>
+                        </div>
+                        <group>
+
+                            <field name="consignee_id"/>
+                            <field name="governorate_id"/>
+                            <field name="area_id"/>
+                        </group>
+
+                        <notebook>
+                            <page name="Shipments" string="Shipments">
+                                <field name="shipment_ids" options="{'no_create_edit':True, 'no_open': True}">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="shipping_fee"/>
+                                        <field name="currency_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record> -->
+
+        <record id="view_stock_location_log_tree" model="ir.ui.view">
+            <field name="name">stock.location.log.tree</field>
+            <field name="model">stock.location.log</field>
+            <field name="arch" type="xml">
+                <tree string="Location Moves" class="o_employee_form">
+                    <field name="partner_id"/>
+                    <field name="location_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="stock_location_log_mangment" model="ir.actions.act_window">
+            <field name="name">Location Moves</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">stock.location.log</field>
+            <field name="view_mode">tree,form</field>
+
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                </p>
+                <p>
+                </p>
+            </field>
+        </record>
+        <menuitem id="stock_location_log_menu"
+                  action="bmberry.stock_location_log_mangment" name="Location Moves" parent="stock.menu_warehouse_report"
+                  sequence="120"/>
+
+
+    </data>
+</odoo>

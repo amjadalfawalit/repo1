@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <template id="excel_upload_error_template" name="Excel Upload Error">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="False"/>
+
+                <div class="container">
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h2>Error Details</h2>
+                            <div class="alert alert-danger">
+                                <t t-esc="error_message"/>
+                            </div>
+                            <a class="btn btn-primary" href="/my/locations">Back to My Locations</a>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="excel_upload_success_template" name="Excel Upload Success">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="False"/>
+
+                <div class="container">
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h2>Success</h2>
+                            <div class="alert alert-success">
+                                <t t-esc="success_message"/>
+                            </div>
+                            <a class="btn btn-primary" href="/my/locations">Back to My Locations</a>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+
+        <template id="portal_locations" name="My Locations">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+                <div class="bg-white p-4 rounded shadow-sm h-100">
+                    <h1 class="text-center mb-4"><i class="bi bi-geo-alt-fill text-primary mr-2"></i> My Locations</h1>
+        
+                    <div t-if="not locations" class="alert alert-info justify-content-center align-items-center">
+                        <i class="fas fa-info-circle fa-2x mr-2"></i> There are currently no Locations for your account.
+                    </div>
+                    <t t-else="">
+                        <div class="card upload-excel-card mt-4">
+                            <div class="card-body">
+                                <h2 class="card-title text-center mb-4"><i class="bi bi-file-earmark-spreadsheet-fill text-primary mr-2"></i> Upload Excel File</h2>
+                                <form enctype="multipart/form-data" method="POST" action="/portal/upload/excel">
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                    
+                                            <input type="file" class="custom-file-input" id="excel_file" name="excel_file" onchange="updateFileNameLabel(this)"/>
+                                            <label class="custom-file-label" for="excel_file">Choose file</label>
+                    
+                                        </div>
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-primary"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+        
+                        <t t-call="portal.portal_searchbar">
+                            <t t-set="title">Locations</t>
+                        </t>
+                        <t t-call="portal.portal_table">
+                            <thead>
+                                <th class="text-center">#</th>
+                                <th class="text-center">Location Name</th>
+                                <th class="text-center">Company Name</th>
+                                <th class="text-center">Template</th>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="locations" t-as="location">
+                                    <tr>
+                                        <td class="text-center"><i class="bi bi-hash"></i> <t t-esc="location.id"/></td>
+                                        <td class="text-center"><span t-field="location.name"/></td>
+                                        <td class="text-center"><span t-field="location.warehouse_id"/></td>
+                                        <td class="text-center">
+                                            <a t-attf-href="/portal/download/excel/#{location.id}"><i class="fa fa-download"></i> Download Excel Template</a>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </t>
+                    </t>
+                </div>
+            </t>
+            <script type="text/javascript">
+                function updateFileNameLabel(input) {
+                    if (input.files.length &gt; 0) {
+                        // Get the selected file's name
+                        var fileName = input.files[0].name;
+                        // Update the label text with the file name
+                        input.nextElementSibling.innerText = fileName;
+                    } else {
+                        // Reset the label text if no file is selected
+                        input.nextElementSibling.innerText = "Choose file";
+                    }
+                }
+            </script>
+        </template>
+
+        <template id="portal_stock_picking" name="My Load Requests">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+                <div class="bg-white p-4 rounded shadow-sm h-100">
+                    <h1 class="text-center mb-4"><i class="bi bi-geo-alt-fill text-primary mr-2"></i> My Load Requests</h1>
+        
+                    <div t-if="not pickings" class="alert alert-info justify-content-center align-items-center">
+                        <i class="fas fa-info-circle fa-2x mr-2"></i> There are currently no Load Requests for your account.
+                    </div>
+                    <t t-else="">
+                    
+        
+                        <t t-call="portal.portal_searchbar">
+                            <t t-set="title">Load Requests</t>
+                        </t>
+                        <t t-call="portal.portal_table">
+                            <thead>
+                                <th class="text-center">#</th>
+                                <th class="text-center">Ref</th>
+                                <th class="text-center">Market</th>
+                                <th class="text-center">Location</th>
+                                <th class="text-center">State</th>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="pickings" t-as="obj">
+                                    <tr>
+                                        <td class="text-center"><a t-attf-href="/my/stock/#{obj.id}"><i class="bi bi-hash"></i> <t t-esc="obj.id"/></a></td>
+                                        <td class="text-center"><a t-attf-href="/my/stock/#{obj.id}"><span t-field="obj.name"/></a></td>
+                                        <td class="text-center"><span t-field="obj.location_dest_id.warehouse_id"/></td>
+                                        <td class="text-center"><span t-field="obj.location_dest_id"/></td>
+                                        <td class="text-center">
+                                            <span t-field="obj.state"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </template>
+
+        <template id="portal_my_home_upload_product" name="My Load Requests" inherit_id="portal.portal_my_home" customize_show="True" priority="30">
+            <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="title">My Locations</t>
+                    <t t-set="url" t-value="'/my/locations'"/>
+                    <t t-set="placeholder_count" t-value="'location_count'"/>
+                </t>
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="title">My Load Requests</t>
+                    <t t-set="url" t-value="'/my/load_requests'"/>
+                    <t t-set="placeholder_count" t-value="'picking_count'"/>
+                </t>
+
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="title">My Products</t>
+                    <t t-set="url" t-value="'/my/products'"/>
+                    <t t-set="placeholder_count" t-value="'product_count'"/>
+                </t>
+
+            </xpath>
+        </template>
+
+
+        <template id="transfer_portal_content" name="Transfer Order Portal Content">
+            <!-- Intro -->
+            <div id="introduction" t-attf-class="pb-2 pt-3 #{'card-header bg-white' if report_type == 'html' else ''}">
+              <h2 class="my-0">
+                <t t-if="order.state in ['draft', 'confirmed','assigned']">Request for Load Products</t>
+                <t t-else="1">
+                  Load Request
+                </t>
+                <em t-esc="order.name"/>
+              </h2>
+            </div>
+      
+            <div t-attf-class="#{'card-body' if report_type == 'html' else ''}">
+                <!-- Informations -->
+                <div id="informations">
+                    <div class="row" id="po_date">
+                        <div class="mb-3 col-6">
+                          <span t-field="order.create_date" t-options='{"widget": "date"}'/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                          <address t-field="order.company_id.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+                        </div>
+                    </div>
+      
+
+                </div>
+      
+                <section id="details" style="page-break-inside: auto;" class="mt32">
+                    <h3 id="details">Details</h3>
+      
+                    <div class="table-responsive">
+                      <table t-att-data-order-id="order.id"  class="table table-sm" id="transfer_ordeer_detials">
+                          <thead class="bg-100">
+                              <tr>
+                                  <th class="text-left">Products</th>
+                                  <th class="text-right">Quantity</th>
+                              
+                              </tr>
+                          </thead>
+                          <tbody class="transfer_tbody">
+                              <t t-foreach="order.move_ids_without_package" t-as="line">
+                                  <tr t-att-class="'bg-200 font-weight-bold o_line_section'">
+                                          <td id="product_name">
+                                              <img t-att-src="image_data_uri(resize_to_48(line.product_id.image_1024))" alt="Product" class="d-none d-lg-inline"/>
+                                              <span t-field="line.product_id.display_name"/>
+                                          </td>
+                                          <td class="text-right">
+                                              <div id="quote_qty">
+                                                  <span t-field="line.product_uom_qty"/>
+                                                  <span t-field="line.product_uom" />
+                                              </div>
+                                          </td>
+
+                                  </tr>
+    
+                              </t>
+                          </tbody>
+                      </table>
+                    </div>
+                </section>
+            </div>
+        </template>
+
+
+        <template id="portal_my_load_request" name="Load Request Portal Template" inherit_id="portal.portal_sidebar" primary="True">
+            <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+                <div class="row mt16 o_portal_transfer_sidebar">
+                    <!-- Sidebar -->
+                    <t t-call="portal.portal_record_sidebar">
+                        <t t-set="classes" t-value="'col-lg-auto d-print-none'"/>
+      
+                        <t t-set="title">
+                        </t>
+                        <t t-set="entries">
+                            <ul class="list-group list-group-flush flex-wrap flex-row flex-lg-column">
+                                <li class="list-group-item flex-grow-1">
+                                    <div class="o_download_pdf btn-toolbar flex-sm-nowrap">
+                                        <h2 class="my-0">
+                                            <t>State : <t t-esc="order.state.upper()"/></t>
+                                     
+                                          </h2>
+
+                                    </div>
+                                </li>
+      
+      
+                                <li t-if="order.user_id" class="list-group-item flex-grow-1">
+                                    <div class="small mb-1"><strong class="text-muted">Transfer Representative</strong></div>
+                                    <div class="row flex-nowrap">
+                                        <div class="col flex-grow-0 pr-2">
+                                            <img class="rounded-circle mr4 float-left o_portal_contact_img" t-att-src="image_data_uri(order.user_id.avatar_1024)" alt="Contact"/>
+                                        </div>
+                                        <div class="col pl-0" style="min-width: 150px">
+                                            <span t-field="order.user_id" t-options='{"widget": "contact", "fields": ["name", "phone"], "no_marker": True}'/>
+                                            <a href="#discussion" class="small"><i class="fa fa-comment"></i> Send message</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </t>
+                    </t>
+      
+                    <!-- Page content -->
+                    <div id="quote_content" class="col-12 col-lg justify-content-end">
+      
+                        <!-- status messages -->
+                        <div t-if="order.state == 'cancel'" class="alert alert-danger alert-dismissable d-print-none" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="close">&amp;times;</button>
+                            <strong>This Transfer has been canceled.</strong>
+                        </div>
+      
+                        <!-- main content -->
+                        <div t-attf-class="card #{'pb-5' if report_type == 'html' else ''}" id="portal_transfer_content">
+                            <div t-call="bmberry.transfer_portal_content"/>
+                        </div>
+      
+                        <!-- chatter -->
+                        <div id="transfer_communication" class="mt-4">
+                            <h2>History</h2>
+                            <t t-call="portal.message_thread">
+                                <t t-set="object" t-value="order"/>
+                            </t>
+                        </div>
+                    </div><!-- // #quote_content -->
+                </div>
+            </xpath>
+        </template>
+      
+
+        <template id="portal_products" name="My Products">
+            <t t-call="portal.portal_layout">
+                <t t-set="breadcrumbs_searchbar" t-value="True"/>
+                <div class="bg-white p-4 rounded shadow-sm h-100">
+                    <h1 class="text-center mb-4"><i class="bi bi-geo-alt-fill text-primary mr-2"></i> My Products</h1>
+        
+                    <div t-if="not products" class="alert alert-info justify-content-center align-items-center">
+                        <i class="fas fa-info-circle fa-2x mr-2"></i> There are currently no Products for your account.
+                    </div>
+                    <t t-else="">
+
+                        <t t-call="portal.portal_searchbar">
+                            <t t-set="title">Products</t>
+                        </t>
+                        <t t-call="portal.portal_table">
+                            <thead>
+                                <th class="text-center">#</th>
+                                <th class="text-center">Product Name</th>
+                                <th class="text-center">Product Price</th>
+                                <th class="text-center">Product Barcode</th>
+                                <th class="text-center">Product Member BarCode</th>
+                                <th class="text-center">On Hand Qty</th>
+
+                                
+
+
+                            </thead>
+                            <tbody>
+                                <t t-foreach="products" t-as="product">
+                                    <tr>
+                                        <td class="text-center"><i class="bi bi-hash"></i> <t t-esc="product.id"/></td>
+                                        <td class="text-center"><span t-field="product.name"/></td>
+                                        <td class="text-center"><span  t-options='{"widget": "monetary"}' t-field="product.list_price"/></td>
+                                        <td class="text-center"><span  t-field="product.barcode"/></td>
+                                        <td class="text-center"><span  t-field="product.member_barcode"/></td>
+                                        <td class="text-center"><span  t-field="product.sudo().qty_available"/></td>
+
+
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </template>
+
+
+
+        
+    </data>
+</odoo>

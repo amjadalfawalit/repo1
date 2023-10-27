@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.sales_2</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="5"/>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='show_margins']" position="before">
+                <div class="col-12 col-lg-6 o_setting_box" id="sale_precntege"
+                     title="Profit Percnteg From Member Sales">
+                    <div class="o_setting_right_pane">
+                        <label for="sale_percentage"/>
+                        <div class="text-muted">
+                            Profit Percnteg From Member Sales
+                        </div>
+                        <field name="sale_percentage"/>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_right_pane">
+                        <label for="payment_journal_id"/>
+                        <div class="text-muted">
+                            <field name="payment_journal_id"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_right_pane">
+                        <label for="vbill_journal_id"/>
+                        <div class="text-muted">
+                            <field name="vbill_journal_id"/>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="col-12 col-lg-6 o_setting_box" id="profit_account"
+                title="Profit Account Sales">
+               <div class="o_setting_right_pane">
+                   <label for="profit_account_id"/>
+                   <div class="text-muted">
+                       Profit Account
+                   </div>
+                   <field name="profit_account_id"/>
+               </div>
+           </div>
+         
+            </xpath>
+        </field>
+    </record>
+    <record id="res_config_settings_stock_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.stock_2</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="5"/>
+        <field name="inherit_id" ref="stock.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='sell_purchase_uom']" position="after">
+                <div class="col-12 col-lg-6 o_setting_box" id="subscription_template_id"
+                     title="S">
+                <div class="o_setting_right_pane">
+                    <label for="subscription_template_id"/>
+                    <div class="content-group">
+                        <div class="row mt16">
+                            <label for="subscription_template_id" class="col-lg-4 o_light_label"/>
+                            <field name="subscription_template_id"/>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </xpath>            
+        </field>
+    </record>
+</odoo>

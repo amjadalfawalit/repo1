@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="external_layout_standard_custom">
+    <div t-attf-class="header" t-att-style="report_header_style">
+      <div class="row">
+        <div class="col-12 text-center mt-3">
+          <h2>WESTSIDE MARKET</h2>
+        </div>
+      </div>
+    </div>
+
+    <div
+      t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout {{  'o_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}"
+      t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % company.layout_background_image.decode('utf-8') if company.layout_background_image and company.layout_background == 'Custom' else '/base/static/img/bg_background_template.jpg' if company.layout_background == 'Geometric' else ''}});"
+      t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"
+      t-att-data-oe-lang="o and o.env.context.get('lang')">
+      <t t-out="0" />
+    </div>
+
+    <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+      <div class="text-center" style="border-top: 1px solid black;">
+        <ul class="list-inline mb4">
+          <div t-field="company.report_footer" />
+        </ul>
+
+        <div t-if="report_type == 'pdf'" class="text-muted"> Page: <span class="page" /> / <span
+            class="topage" />
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- Public api: layout to t-call from reports -->
+
+  <template id="external_layout_custom">
+    <t t-if="not o" t-set="o" t-value="doc" />
+
+    <t t-if="not company">
+      <!-- Multicompany -->
+      <t t-if="company_id">
+        <t t-set="company" t-value="company_id" />
+      </t>
+      <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+        <t t-set="company" t-value="o.company_id.sudo()" />
+      </t>
+      <t t-else="else">
+        <t t-set="company" t-value="res_company" />
+      </t>
+    </t>
+
+    <t t-call="bmb_templates.external_layout_standard_custom">
+      <t t-out="0" />
+    </t>
+
+  </template>
+
+
+  <template id="bmb_templates.bmb_contract">
+
+    <t t-call="web.html_container">
+      <t t-call="bmb_templates.external_layout_custom">
+        <t t-foreach="docs" t-as="record">
+          <t t-set="lang" t-value="doc.partner_id.lang" />
+          <div class="page">
+            <div class="">
+              
+
+                <div class="text-center mb-3">
+                  <h4>CONSIGNMENT, DISPLAY &amp; SALES AGREEMENT - MIDTOWN</h4>
+                </div>
+
+              <div class="">
+                
+
+                <t t-set="member_code" t-value="record.partner_id.member_code or '_______________'" />
+                <t t-set="create_date" t-value="record.create_date or '_______________'" />
+                <t t-set="vat" t-value="record.partner_id.vat or '_______________'" />
+                <t t-set="space_names"
+                  t-value="','.join([line.product_id.product_tmpl_id.stock_location_id.name or '' for line in record.order_line]) or '_______________'" />
+
+                <t t-set="company_name" t-value="record.company_id.name or '_______________'" />
+                <t t-set="amount_total" t-value="record.amount_total or '_______________'" />
+                <t t-set="years_in_business"
+                  t-value="record.partner_id.years_in_business or '___________'" />
+                <t t-set="city" t-value="record.partner_id.city or '________'" />
+                <t t-set="state_name" t-value="record.partner_id.state_id.name or '_______________'" />
+                <t t-set="street" t-value="record.partner_id.street or '_______________'" />
+                <t t-set="zip_code" t-value="record.partner_id.zip or '_______________'" />
+                <t t-set="mobile" t-value="record.partner_id.mobile or '_______________'" />
+                <t t-set="email" t-value="record.partner_id.email or '_______________'" />
+                <style>
+                  td {
+                  padding-left:10px;
+                  padding-right:10px;
+
+                  },
+                  tr {
+                  padding-top:5px;
+                  padding-bottom:5px;
+                  }
+                </style>
+                <table >
+                  <tr>
+                    <td colspan="2">Consignor Code: <u>
+                        <t t-esc="member_code" />
+                      </u>
+                    </td>
+                    <td colspan="2">Date: <u>
+                        <t t-esc="create_date" t-options="{'widget': 'date'}" />
+                      </u>
+                    </td>
+                  </tr>
+                  <tr height="30px">
+                    
+                  </tr>
+                  <tr>
+                    <td colspan="2">Space(s): <u>
+                        <t t-esc="space_names" />
+                      </u>
+                    </td>
+                    <td colspan="2">Monthly Marketing Fee(s): <u>
+                        <t t-esc="amount_total " />$ </u>
+                    </td>
+                  </tr>
+                  <tr height="20px">
+                    
+                  </tr>
+                  <tr>
+                    <td colspan="2">First Name: _________________</td>
+                    <td colspan="2">Last Name: _________________</td>
+                  </tr>
+                  <tr height="30px">
+                    
+                  </tr>
+                  <tr>
+                    <td colspan="2">Tax ID: <u>
+                        <t t-esc="vat" />
+                      </u>
+                    </td>
+                    <td colspan="2">Company/Organization Name: <u>
+                        <t t-esc="company_name" />
+                      </u>
+                    </td>
+                  </tr>
+                  
+                  <tr height="30px">
+                    
+                  </tr>
+                  <tr>
+                    <td colspan="2">Years in Business: <u>
+                        <t t-esc="years_in_business" />
+                      </u>
+                    </td>
+                    <td colspan="2">Address: <u>
+                        <t t-esc="street" />
+                      </u>
+                    </td>
+                    <td colspan="2">City: <u>
+                        <t t-esc="city" />
+                      </u>
+                    </td>
+                  </tr>
+                  <tr height="30px">
+                    
+                  </tr>
+                  <tr>
+                    <td colspan="2">State: <u>
+                        <t t-esc="state_name" />
+                      </u>
+                    </td>
+                    <td>Zip: <u>
+                        <t t-esc="zip_code" />
+                      </u>
+                    </td>
+                    <td>Cell #: <u>
+                        <t t-esc="mobile" />
+                      </u>
+                    </td>
+                    <td>Email: <u>
+                        <t t-esc="email" />
+                      </u>
+                    </td>
+                  </tr>
+                </table>
+
+
+                <p class="mt-3"> This Marketing Agreement (hereinafter referred to as the
+                  “agreement”), made this date, by and between Westside Market LLC, a Georgia
+                  corporation, (hereinafter referred to as “Westside”), and <t
+                    t-esc="record.user_id.name" /> referred to as Consignor. </p>
+              </div>
+            </div>
+
+
+            <div class="row text-center mt-3 mb-3">
+              <div class="col-12">
+                <h4>RECITALS</h4>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <p>Whereas Consignor is engaged in the business of selling or consigning items such
+                  as
+                  antiques, collectibles, accessories, rugs, furniture, decorative arts, clothing,
+                  and
+                  other similar items related to interiors/design/apparel hereinafter referred to as
+                  the
+                  “merchandise”.</p>
+                <p>Whereas, Westside has leased a building at 1530 Ellsworth Industrial Blvd., NW
+                  Atlanta,
+                  GA. 30318 to allow Consignor to display their merchandise, and</p>
+                <p>Whereas, Consignor desires to appoint Westside as an independent sales agent and
+                  Westside desires to become an independent sales agent of Consignor for merchandise
+                  located at Westside according to the terms and conditions hereinafter set forth;</p>
+              </div>
+
+            </div>
+
+            <div class="row  mt-3 mb-3">
+              <div class="col-12 text-center">
+                <h4>CONSIGNMENT, DISPLAY &amp; SALES AGREEMENT</h4>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <p><strong>Term.</strong> This Agreement shall be for a term of six (6) months,
+                  commencing on <t
+                    t-esc="record.create_date.month == 1 and '1' or (record.create_date + relativedelta(day=1, months=1)).strftime('%B %d, %Y')" />
+                  , <t t-esc="time.strftime('%Y')"></t> .</p>
+                <p>This Agreement will automatically renew.</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <p><strong>Agency.</strong> Consignor hereby appoints Westside as Consignor’s sales
+                  agent to represent Consignor in the marketing and promotion of Consignor’s
+                  merchandise located at Westside.</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <p><strong>Assignment.</strong> Consignor shall not assign this Agreement or any
+                  portion thereof, or allow a third party to use the space or any portion thereof,
+                  nor subcontract or grant any third party the right to conduct any aspect of
+                  Consignor’s business upon the space or the building.</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <p><strong>Fees.</strong> Each Consignor will be charged a marketing fee for the
+                  designated “space(s)” assigned. Consignor agrees to pay Westside the monthly
+                  “Marketing Fee” payable on the first day of the month. Westside will have annual
+                  increases on the 1st of Jan of every year, price increases are announced on Oct
+                  1st every year.</p>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-12">
+                <p>
+                  Marketing fee is required to be set up as a recurring charge through our secured
+                  credit card payment processing system. If payment is not received, your proceeds
+                  payment for the prior sales month will not be issued.
+                </p>
+                <p>
+                  Payment received after the 5th will incur a 10% late charge which will be applied
+                  to the unpaid balance. Proceed checks will be available 7 days from the date the
+                  account becomes current.
+                </p>
+                <p>
+                  If the Marketing Fee is not paid by the 10th of the month in which it is due, the
+                  contract will be considered void, and the Consignor will forfeit all deposits.
+                  Consignor's merchandise will be removed from the showroom by the end of the month
+                  and will incur a $50.00 per day storage fee until all monies due are paid.
+                </p>
+                <p>
+                  Marketing fees are collected each month and will be used for the promotion of
+                  Westside, including but not limited to advertising special events, promotional
+                  materials, signage, and overhead, including costs associated with the daily
+                  operations of Westside. There will be no refunds on marketing fees.
+                </p>
+                <p>
+                  <strong>Pallet Fee:</strong> You will be charged $20 a pallet received in the
+                  Westside warehouse. It will be invoiced monthly. </p>
+                <p>
+                  <strong>Declined Marketing Fee Payments:</strong> Declined payments from
+                  Consignors to Westside will incur a $50.00 reprocessing fee. It is the Consignor’s
+                  responsibility to make sure their credit card has sufficient funds available and
+                  is up to date. Proceed payments will be available 7 days from the date the account
+                  becomes current. </p>
+                <p>
+                  <strong>Proceeds:</strong> Proceeds, less sales tax, fees of 4% for credit card
+                  transactions, and Westside commission of 10% will be made on the 8th of the month
+                  for the previous month’s activity. Your proceeds will be held if the rent, or any
+                  assessed fees, including but not limited to late fees, insurance fees, freight or
+                  delivery fees, etc., have not been paid on time. Lost checks will incur a $50.00
+                  fee to reissue a new check. </p>
+                <p>
+                  <strong>Type of Merchandise:</strong> Consignor agrees that the only merchandise
+                  to be sold in the designated space is to be defined below. (Please be specific and
+                  detailed) </p>
+                <p>
+                  ____________________________________________________________________________________________________________
+                  ____________________________________________________________________________________________________________
+                  ____________________________________________________________________________________________________________
+                  ____________________________________________________________________________________________________________
+                </p>
+                <p>
+                  <strong>Westside reserves the right to approve or disapprove any merchandise to be
+                  sold.</strong> If merchandise does not meet with the approval of Westside
+                  management, the Consignor will be advised in writing. Examples of merchandise that
+                  are not acceptable are food, alcohol, counterfeit or knock-off merchandise,
+                  defective or misrepresented items, and hazardous materials. </p>
+                <p>
+                  <strong>Non-approved merchandise must be removed from Consignor’s space within 2
+                  business days.</strong> If Consignor has not removed the merchandise within 2
+                  days, Westside will charge the Consignor $25.00 per hour, per person for labor
+                  plus storage charges of $50.00 per day for the merchandise removed. If Westside
+                  determines certain merchandise may present a hazard to our customers or employees,
+                  it will be removed immediately. </p>
+                <p>
+                  <strong>NEW categories of merchandise not listed by Consignor in this contract
+                    must be approved by Westside management before being placed in the space in
+                    writing.</strong>
+                </p>
+                <p>
+                  <strong>Security Deposit:</strong> Consignor agrees to pay Westside a refundable
+                  deposit equivalent to one month’s marketing fee payable on the date this agreement
+                  is executed by Consignor. Westside shall receive and hold the security deposit
+                  without liability for interest. </p>
+
+                <p>
+                  Security deposits will be returned to the Consignor subject to other provisions
+                  within this contract by the 15th of the following month after you have vacated
+                  your space.
+                </p>
+                <p>
+                  <strong>Premises Liability Insurance:</strong> is included in your monthly fee.
+                  This insurance covers bodily injury or death to any person(s) because of any
+                  negligent act, gross negligent act on the part of the Consignor, its employees, or
+                  agents. Subject to policy terms, conditions, and exclusions. At no time will this
+                  fee be prorated or refunded. </p>
+                <p>
+                  <strong>Property Insurance:</strong> is included in your monthly fee. This
+                  insurance covers you for Fire, lightning wind, and smoke. Actual coverage will be
+                  subject to the terms, conditions, limitations, limits, and sub-limits of the
+                  policy. </p>
+                <p>
+                  <strong>Credit Card Fees:</strong> Credit card sales will be assessed a fee of
+                  (4%) four percent. </p>
+                <p>
+                  <strong>Sales Tax:</strong> Westside collects and remits all state and local sales
+                  tax. </p>
+                <p>
+                  <strong>Construction:</strong> Painting of walls is prohibited. Any construction
+                  and/or floor coverings completed in and around the assigned space must be approved
+                  by Westside in writing prior to commencing work. Any approved construction must be
+                  completed by a licensed and insured general contractor. </p>
+                <p>
+                  <strong>All improvements such as but not limited to walls, drywall, pegboard,
+                    wood, or laminate flooring, electrical, or attachments will become the property
+                    of Westside.</strong>
+                </p>
+                <p>
+                  <strong>Any damages to your designated or surrounding space while building or
+                  moving in or out shall be your responsibility and will be deducted from a paycheck
+                  or deposit.</strong> Consignor shall not place any sign in or on the building,
+                  including the space, without prior written approval of Westside. No permanent or
+                  hazardous changes to the walls nor floors are allowed. Space must be returned to
+                  its original condition subject to Westside’s discretion. Westside is not
+                  responsible for injury or damages due to any construction made by the member. </p>
+                <p>
+                  <strong>Notice to Vacate:</strong> All notices to vacate must be in writing in an
+                  email to the store manager and given to Westside 30 days or more prior to vacating
+                  the space. </p>
+                <p>
+                  <strong>Failure to Vacate:</strong> If Consignor fails to vacate on the
+                  agreed-upon termination date, each day thereafter will result in a $50.00 per day
+                  storage fee. Should Westside have to move Consignor's merchandise to the
+                  warehouse, a fee of $25.00 per hour per person will be charged. </p>
+                <p>
+                  <strong>Merchandise:</strong> Consignor acknowledges that Westside has the right
+                  to impose quality control restrictions on the merchandise and agrees to remove any
+                  merchandise determined by Westside, at Westside’s sole discretion that does not
+                  meet Westside’s standards. </p>
+                <p>
+                  <strong>CLAIM:</strong>
+                </p>
+                <ul>
+                  <li><strong>Clean:</strong> Space is clean or customer-ready.</li>
+                  <li><strong>Lighting:</strong> Having proper lighting.</li>
+                  <li><strong>Accessibility:</strong> Customers can easily access and shop space.</li>
+                  <li><strong>Inspiring:</strong> Make your space inviting with creativity, fresh
+                    merchandise, and a unique look.</li>
+                  <li><strong>Maintenance:</strong> Visit your space often, keep it stocked with new
+                    merchandise.</li>
+                </ul>
+                <p>
+                  <strong>Abandonment:</strong> Westside has the right to terminate Consignor's
+                  agreement for abandonment of Consignor's designated space. This includes but is
+                  not limited to an empty space, filth, and/or merchandise on the floor for lack of
+                  furniture to place breakables. Payment of marketing fees does not exclude
+                  Consignors from these standards. If the Consignor fails to correct the situation
+                  within the 30 days, the agreement may be terminated by Westside. No deposit will
+                  be refunded. Any merchandise, display fixtures, shelving, or property left on the
+                  premises of Westside after Consignor has paid final fees and/or termination of
+                  this agreement by any action shall be considered abandoned and may be sold or
+                  disposed of by Westside at Westside’s discretion. </p>
+
+
+                <p><strong>Sales Policy.</strong> All sales or special orders from Consignor’s space
+                  must go through Westside Market's register. NO sales will be permitted directly to
+                  customers. Any violations of this policy will be a default of your contract and
+                  would cause a termination of your contract.</p>
+
+                <p><strong>Hazardous Materials.</strong> No hazardous materials are allowed at
+                  Westside. Consignor represents and warrants that it will operate on the premises
+                  in compliance with any and all Federal, State, or local laws, rules, or
+                  ordinances.</p>
+
+                <p><strong>Termination.</strong> Westside has the right to retain your deposit and
+                  terminate your agreement for the following reasons: Failure to move into Westside
+                  after signing an agreement, failure to provide the required notice when vacating,
+                  failure to fulfill the agreement terms, excessive late marketing fee payments,
+                  bounced checks, a significant change to unacceptable merchandise or insufficient
+                  merchandise, failure to run sales through Westside, failure to maintain your space
+                  in accordance with Westside policies, or maintain your space a minimum of once a
+                  week.</p>
+
+                <p>All Consignors of Westside, including their principals and employees, must
+                  conduct themselves at all times in a professional manner. Any disputes that may
+                  arise between or among other Consignors regarding product offerings or any other
+                  issue must immediately be brought to the attention of Westside management. Any
+                  violation of this section may result in termination of the marketing agreement.</p>
+
+                <strong>
+                  <p>General:</p>
+                </strong>
+                <ol>
+                  <li>Please return Westside Market phone calls &amp; emails ASAP for your benefit.</li>
+                  <li>Consignors must notify Westside Market management 24 hours in advance when
+                    merchandise is being shipped to be received at Westside Market dock.</li>
+                  <li>Consignors must remove shipments received by Westside Market to their space
+                    within 48 hours.</li>
+                  <li>Consignors are expected to bring any merchandise in and out of their locations
+                    with their own manpower.</li>
+                  <li>Consignors must sign in &amp; out every time you visit the Westside Market
+                    front desk when entering &amp; leaving the Market.</li>
+                  <li>Consignors are permitted to bring small furniture and accessories through the
+                    front entry. Large items are to be brought through the warehouse access located
+                    in the rear of the store.</li>
+                  <li>Consignors must notify their store manager via email for any personnel who
+                    will be removing items from their space. This includes delivery persons or
+                    delivery companies.</li>
+                </ol>
+
+                <strong>
+                  <p>Tagging of Merchandise:</p>
+                </strong>
+                <ol>
+                  <li>Each Consignor must enter their inventory with descriptions and pricing into
+                    Westside’s POS SYSTEM.</li>
+                  <li>You can print your Labels or can be printed by Westside and given to the
+                    members. It is the member’s responsibility to tag their own products with
+                    Westside’s labels.</li>
+                  <li>ALL items must be tagged securely with Westside's Tags. Consignor’s code, item
+                    #, item description (description to be accurate, real, and true).</li>
+                  <li>We are not responsible for mis-tagged, mislabeled, or illegible tags on
+                    merchandise.</li>
+                  <li>Any items NOT for sale in your space must be tagged DISPLAY ONLY-NOT FOR SALE.</li>
+                  <li>Westside encourages consignors to impart product knowledge to our sales team
+                    to better serve our customers and be a better representative of your product.</li>
+                  <li>Any damaged merchandise must be tagged AS-IS along with what the damage is
+                    and/or any missing pieces listed.</li>
+                  <li>Items hung high, over 6ft, MUST have a large enough tag to be read and if
+                    needed information placed low enough to read.</li>
+                  <li>Clearance and sale signs MUST be approved, produced and hung by Westside
+                    management before being placed in space.</li>
+                </ol>
+
+                <p><strong>Sales Policy.</strong> All sales or special orders from Consignor’s space
+                  must go through the Westside register. NO sales will be permitted directly to
+                  customers. Any violations of this policy will be a default of your contract and
+                  would cause a termination of your contract.</p>
+
+                <p><strong>Discounting of Merchandise.</strong> We offer discounts to registered
+                  trade/interior designers. Each Consignor can choose from 10% and up as a trade
+                  discount. ALL SALE ITEMS MUST BE MARKED “FIRM” IF YOU DO NOT WISH FURTHER
+                  DISCOUNTS TO BE TAKEN.</p>
+
+                <p><strong>Sales &amp; Special Events.</strong> Westside will conduct store SALES
+                  Events several times a year. Enough notice will be given so each Consignor can
+                  prepare their booth and inventory. Member sales must be requested in writing via
+                  email to the store. Sale requests must follow store guidelines. Westside will have
+                  special events planned throughout the year. Consignors are encouraged to be
+                  present and have their booth staffed. Consignors are also encouraged to actively
+                  participate in promotional activities that will enhance sales and community
+                  awareness. It is important to the success of everyone’s business for everyone to
+                  be involved. Please see Westside Market management with any ideas or
+                  opportunities.</p>
+
+                <p><strong>Film and Photography Rental.</strong> We offer merchandise rentals to
+                  film and photography production companies. Film/Photography rentals are charged
+                  25% of the original selling price for a two-week period (not the sales price).</p>
+
+                <p><strong>Display of Space.</strong> Westside's mission is to offer the trade and
+                  public a unique &amp; design-oriented visual experience when walking through
+                  Westside Market. Each Consignor must strive to maintain this experience through
+                  upscale merchandised spaces. Westside will make sure as items sell empty spaces
+                  will be filled. It is each Consignor's responsibility to make sure weekly
+                  restocking is done.</p>
+
+                <p>Merchandise must be kept in the parameters of each Consignor’s space. No items in
+                  aisles, no items stacked up like a warehouse. NO merchandise is to be hung on the
+                  outside end caps unless you have rented said Endcap. End cap shelves can’t exceed
+                  6 inches in depth and 2 feet off the ground.</p>
+
+                <p>Merchandise must be ready to sell when brought onto premises. No repairing,
+                  painting, or refinishing of the product is to be done in or around the building.</p>
+
+                <p>Consignors must provide their supplies such as nails, screws, hammers, tape, etc.
+                  Westside will not provide any tools or supplies. Westside provides ladders and
+                  carts to be used at your risk.</p>
+
+                <p>When re-merchandising your space, be respectful of fellow Consignors by not
+                  blocking aisles or placing items in front of their space.</p>
+
+                <p><strong>Electrical.</strong> All lighting must be LED. Max allowable wattage
+                  equals the total wattage of all bulbs used in a space: Single Booth 15 watts, 1.5
+                  Booth 23 watts, Double Booth 30 watts, Triple Booth 45 watts. Extension cords
+                  should be hidden and kept to a minimum. All visible extension cords and those that
+                  could cause harm to customers will be removed without notice.</p>
+
+                <p><strong>Lost, Stolen or Damaged Merchandise.</strong> Westside will make all
+                  reasonable effort to protect Consignor's merchandise from loss, theft, or damage.
+                  Under normal business activities, Consignors and Westside Market management
+                  recognize that items may be stolen, lost, or damaged. Both parties accept this as
+                  a normal cost of doing business. Members understand it is their choice and
+                  responsibility to maintain insurance for property located in their booths.</p>
+
+                <p>In the event that Westside damages a Consignor’s merchandise, Westside reserves
+                  the right to repair the merchandise to the original condition if appropriate. If
+                  Westside is unable to make such repairs, Westside will reimburse the Consignor’s
+                  cost of the item (not the retail price) once an invoice is submitted. Those items
+                  then become the property of Westside Market.</p>
+
+                <p><strong>Advertising.</strong> We encourage you to link your website, Facebook,
+                  Instagram accounts, and other social media to Westside website, Facebook,
+                  Instagram, and other social media. Any Consignor is welcome to participate in
+                  Westside advertising programs, home shows, and outside special events through
+                  their advertising channels. Please see management for more details.</p>
+
+                <p><strong>Breach of Contract.</strong> In the event of a breach of this Agreement,
+                  including but not limited to nonpayment of marketing fees, late payment of
+                  marketing fees, or any other breach of this Agreement, Westside shall have the
+                  right to immediately terminate this Agreement, claim possession of any and all of
+                  Consignor's merchandise, lock up or remove Consignor's merchandise, sell
+                  Consignor's merchandise to satisfy unpaid marketing fees, and exercise all other
+                  remedies to Westside in accordance with the laws of the State of Georgia.</p>
+
+                <p><strong>Subordination. </strong>In the event of the expiration or termination
+                  (for any reason whatsoever) of the term of the superior lease between the owner of
+                  the building and Westside, this Agreement shall automatically terminate. This
+                  Agreement is subject and subordinate to the superior lease between the owner of
+                  the building and Westside.</p>
+
+                <p><strong>Amendments: </strong> Westside reserves the right to amend any provision
+                  of this contract with 30 days written notice.</p>
+
+                <p><strong>Legal Construction.</strong> Should any one or more of the provisions
+                  contained within this Agreement be, for any reason, held invalid, illegal, or
+                  unenforceable in any respect, such invalidation, illegality, or unenforceability
+                  shall not affect any other provisions of the Agreement.</p>
+
+                <p>I have read and understand the guidelines above as well as the “Policies and
+                  Procedures'' of Westside and agree to follow them while being a Consignor with
+                  Westside. IN WITNESS WHEREOF, each of the parties hereto has executed this
+                  Agreement, all on the day and year first above written.</p>
+
+
+                <p>
+                  Consignor Signature: __________________________________ Date:
+                  ______________________________________________
+                </p>
+                <p>
+                  Consignor Print Name: __________________________________ Date:
+                  ______________________________________________
+                </p>
+
+
+                <p> Westside Signature: <img style="width:250px"
+                    t-att-src="image_data_uri(env['res.users'].sudo().search([('id','=',2)],limit=1).sign_signature)"></img>
+                  Date: ________________________________ </p>
+                <p> Westside Printed Name: <u>
+                    <t t-out="user.name" />
+                  </u> Date:
+                  ______________________________________________ </p>
+
+
+                <h2 class="mt-5 mb-5">Consignor Information</h2>
+                <p> Consignor Name: <span>_____</span>[ Field by member]<span>_____________</span>
+                  Consignor Tag ID: <span>__</span> [Field by member] ___ </p>
+                <p>
+                  This information will be kept on file for Westside sales staff &amp; management to
+                  refer to as necessary. Any changes must be made in writing and sent to your store
+                  manager email. Please allow up to 5 days for changes to be updated.
+                </p>
+                <ol>
+                  <li> Allow customers to take merchandise out on approval? <br /> Yes <span>
+                    _____________</span> No <span>__________</span>
+                  </li>
+                  <li> Allow film and photography production companies to take merchandise out for
+                    rental? <br /> Yes <span>__________</span> No <span>__________</span>
+                            <br />
+                    Film/Photography Rentals are charged 25% of the original selling price for a
+                    two-week period. </li>
+                  <li> Allow a Trade Discount to registered designers? <br /> 10%_<span>__________</span>
+                    15%_<span>__________</span> 20%_<span>__________</span> 25%_<span>__________</span>
+                    30%_<span>__________</span> No <span>__________</span>
+                  </li>
+                  <li> Allow Westside to offer customers a minimum discount of 10% or more to make a
+                    sale? <br /> 10%_<span>__________</span> 15%_<span>__________</span> 20%_<span>
+                    __________</span> 25%_<span>__________</span> 30%_<span>__________</span> No <span>
+                    __________</span>
+                            <br /> Any further discount will have to contact you for
+                    approval. </li>
+                  <li> Accept Text Messages or Phone Calls regarding offers on your merchandise? <br />
+                    Yes <span>__________</span> No <span>___________</span> Cell #: <span>
+                    ___________</span>
+                  </li>
+                  <li> Allow Westside to utilize merchandise for front window vignettes? <br /> Yes <span>
+                    __________</span> No <span>__________</span>
+                  </li>
+                </ol>
+                <p> Consignor Signature: <span>_____________________________________</span> Date: <span>
+                  ______________________</span>
+                </p>
+
+
+                <strong class="mt-2 mb-2">
+                  <p class="o_p">CONSIGNMENT, DISPLAY &amp; SALES AGREEMENT</p>
+                </strong>
+                <p class="o_p">What you will be paying for today is:</p>
+                <p class="o_p">$____________________= First month marketing fee.</p>
+                <p class="o_p">$____________________= Deposit equal to one month marketing fee.</p>
+                <p class="o_p">$____________________= Total due</p>
+                <p class="o_p">Please fill out the information below for your recurring monthly
+                  charges</p>
+                <p class="o_p">Check One: MasterCard __________Visa___________ American
+                  Express___________</p>
+                <p class="o_p">Name on Card: _____________________________</p>
+                <p class="o_p">Card Number:
+                  __________________________________________________________</p>
+                <p class="o_p">Expiration Date: ________________________ CVV Code: ________________
+                  Zip Code: _________________</p>
+                <p class="o_p">You authorize Westside to bill your credit card monthly for your
+                  monthly marketing fee.</p>
+                <p class="o_p">Signature: __________________________________________________________</p>
+                <p class="o_p">Insurance Information</p>
+                <p class="o_p">What is the total wholesale cost to replace the merchandise you plan
+                  on having in your space at any one time? $___________________________</p>
+                <p class="o_p">Signature ______________________________</p>
+                <strong class="text-center mt-3">
+                  <h2 class="o_p">WELCOME TO WESTSIDE MARKET MIDTOWN!!</h2>
+                </strong>
+              </div>
+            </div>
+          </div>
+      
+
+        </t>
+      </t>
+    </t>
+  </template>
+
+  <template id="contract_pdf">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="doc">
+        <t t-call="bmb_templates.bmb_contract" t-lang="doc.partner_id.lang" />
+      </t>
+    </t>
+  </template>
+
+</odoo>

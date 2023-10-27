@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+    
+        <record id="bmbery_member_action" model="ir.actions.act_window">
+            <field name="name">Members</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{'default_active_member':True,'default_is_company': True}
+            </field>
+            <field name="domain">[('active_member','=',True)]</field>
+        </record>
+
+        <menuitem id="bmbery_menu"
+                  name="Members"/>
+
+        <menuitem id="bmbery_members"
+                  name="Members"
+                  parent="bmbery_menu"
+                  sequence="1"
+                  action="bmbery_member_action"/>
+
+
+
+
+        <menuitem id="location_type_bmbery"
+            name="Location Types"
+            parent="stock.menu_warehouse_config"
+            sequence="1"
+            action="action_stock_location_type"/>
+      
+
+    </data>
+</odoo>

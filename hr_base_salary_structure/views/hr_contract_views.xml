@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hr_contract_view_form_inherit" model="ir.ui.view">
+            <field name="name">hr.contract.form</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='information']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('wage_type', '!=', 'monthly')]}</attribute>
+                </xpath>
+                <xpath expr="//page[@name='information']" position="after">
+                    <page string="Salary Information" name="information_salary_daily" attrs="{'invisible': [('wage_type', '!=', 'daily')]}">
+                        <group name="main_info_daily">
+                            <group name="salary_and_advantages_daily" string="Daily Advantages in Cash">
+                                <label for="wage"/>
+                                <div class="o_row" name="wage">
+                                    <field name="daily_wage" nolabel="1"/>
+                                    <span>/ Day</span>
+                                </div>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

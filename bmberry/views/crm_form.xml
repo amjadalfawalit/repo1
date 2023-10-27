@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+ <record id="inherit_view_id_inherit_crm_lead" model="ir.ui.view">
+        <field name="name">crm.lead.view.form.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Extra Details" name="extra_info">
+                    <group>
+                        <group>
+                            <field name="location"/>
+                            <field name="space_size_requested"/>
+                            <field name="has_other_space"/>
+                            <field name="other_space_duration"/>
+                            <field name="about_product"/>
+                            <field name="customer_gender"/>
+                        </group>
+                        <group>
+                            <field name="product_price_point"/>
+                            <field name="first_time_business_owner"/>
+                            <field name="why_westside_market"/>
+                            <field name="tour_date"/>
+                            <field name="tour_time"/>
+                            <field name="has_website"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="website_link"/>
+                        <field name="instagram"/>
+                        <field name="facebook"/>
+                        <field name="heard_about_us"/>
+                        <field name="photos" widget="many2many_binary"/>
+                    </group>
+                </page>
+            </notebook>
+     </field>
+ </record>
+
+
+
+</odoo>
+ 

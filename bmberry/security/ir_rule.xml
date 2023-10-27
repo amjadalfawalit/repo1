@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- <record id="filter_product_warehouse_custom" model="ir.rule">
+            <field name="name">Filter Product WareHouse Custom</field>
+            <field name="model_id" search="[('model','=','product.template')]" model="ir.model"/>
+            <field name="groups" eval="[(4, ref('bmberry.group_restrict_warehouse'))]"/>
+            <field name="domain_force">
+             [('detailed_type','not in', ['consu']),('warehouse_id','in',[p.id for p in user.warehouse_ids] )]
+            </field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record> -->
+
+        <!-- <record id="filter_product_product_warehouse_custom" model="ir.rule">
+            <field name="name">Filter Product product WareHouse Custom</field>
+            <field name="model_id" search="[('model','=','product.product')]" model="ir.model"/>
+            <field name="groups" eval="[(4, ref('bmberry.group_restrict_warehouse'))]"/>
+            <field name="domain_force">
+             [('detailed_type','!=', 'consu'),'|',('warehouse_id','=',False),('warehouse_id','in',user.warehouse_ids.ids)]
+            </field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record> -->
+
+        <record id="filter_user_stock_picking_type_allowed_new" model="ir.rule">
+            <field name="name">Filter Stock Picking Type Allowed new</field>
+            <field name="model_id" search="[('model','=','stock.picking.type')]" model="ir.model"/>
+            <field name="groups" eval="[(4, ref('group_restrict_warehouse'))]"/>
+            <field name="domain_force">[('warehouse_id','in', [ p.id for p in user.warehouse_ids ])]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="operation_type" model="ir.rule">
+            <field name="name">Operation Type Custom</field>
+            <field name="model_id" search="[('model','=','stock.warehouse')]" model="ir.model"/>
+            <field name="groups" eval="[(4, ref('bmberry.group_restrict_warehouse'))]"/>
+            <field name="domain_force">
+             [('id','in',[p.id for p in user.warehouse_ids] )]
+            </field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+
+
+        <!-- <record id="filter_stock_quant_custom" model="ir.rule">
+            <field name="name">Filter stock Quant Custom</field>
+            <field name="model_id" search="[('model','=','stock.quant')]" model="ir.model"/>
+            <field name="groups" eval="[(4, ref('bmberry.group_restrict_warehouse'))]"/>
+            <field name="domain_force">
+             ['&',('warehouse_id.id','in',[p.id for p in user.warehouse_ids]),('location_id.warehouse_id','!=',False) ]
+            </field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record> -->
+
+<!-- 
+        <record id="filter_product_reccuring" model="ir.rule">
+            <field name="name">Filter Sub Products</field>
+            <field name="model_id" search="[('model','=','product.template')]" model="ir.model"/>
+            <field name="groups" eval="[(4, ref('bmberry.group_restrict_sub_product'))]"/>
+            <field name="domain_force">
+                 [('detailed_type','not in', ['service','consu']),('warehouse_id','in',user.warehouse_ids.ids)]
+            </field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record> -->
+
+    </data>
+</odoo>

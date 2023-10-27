@@ -1,0 +1,47 @@
+{
+    'name': ' OSG Customize',
+    'version': '1.0',
+    'category': '',
+    'sequence': 45,
+    'summary': 'Osg Customize',
+    'depends': [
+        'base',
+        'rating',
+        'mail',
+        'contacts',
+        'account',
+        'stock',
+        'crm',
+        'sale_management',
+        'sale_subscription',
+        'portal',
+        'bmb_templates'
+    ],
+    'description': "",
+    'data': [
+        'security/ir.model.access.csv',
+        'security/groups.xml',
+        'security/ir_rule.xml',
+        'views/res_partner_form.xml',
+        'views/product_form.xml',
+        'views/stock_location.xml',
+        'views/stock_location_log.xml',
+        'views/sale_order.xml',
+        'views/res_users.xml',
+        'views/crm_form.xml',
+        'views/config.xml',
+        'views/location_types.xml',
+        'views/menuitems.xml',
+        'views/pos_payment_method.xml',
+        'views/portal_templates.xml',
+        'views/sign_templates.xml',
+        'views/category_action_view.xml',
+        'data/time_cron.xml'
+    ],
+    
+    'test': [
+    ],
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <template id="assets" inherit_id="point_of_sale.assets">-->
+<!--        <xpath expr="." position="inside">-->
+<!--&lt;!&ndash;            <script type="text/javascript" src="/pos_ch_aw/static/lib/ch_aw_timapi/timapi.js"></script>&ndash;&gt;-->
+<!--            <script type="text/javascript" src="/pos_ch_aw/static/src/js/BalanceButton.js"></script> &ndash;&gt;-->
+<!--            <script type="text/javascript" src="/pos_ch_aw/static/src/js/Chrome.js"></script>-->
+<!--            <script type="text/javascript" src="/pos_ch_aw/static/src/js/models.js"></script>-->
+<!--            <script type="text/javascript" src="/pos_ch_aw/static/src/js/payment_ch_aw.js"></script>-->
+<!--        </xpath>-->
+<!--    </template>-->
+</odoo>

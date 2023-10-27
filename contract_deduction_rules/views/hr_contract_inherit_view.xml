@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_contract_view_form_inherit" model="ir.ui.view">
+        <field name="name">hr.contract.view.form.inherit</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='yearly_advantages']" position="after">
+                <group name="social_security">
+                    <field name="social_security_type"/>
+                    <field name="ssn"/>
+                    <field name="social_security" attrs="{'invisible': [('social_security_type','!=', 'amount')]}"/>
+                    <field name="social_security_percentage"
+                           attrs="{'invisible': [('social_security_type','!=', 'percentage')]}"/>
+                    <field name="social_security_amount"/>
+                </group>
+                <group name="social_insurance">
+                    <field name="social_insurance_type"/>
+                    <field name="social_insurance" attrs="{'invisible': [('social_insurance_type','!=', 'amount')]}"/>
+                    <field name="social_insurance_percentage"
+                           attrs="{'invisible': [('social_insurance_type','!=', 'percentage')]}"/>
+                    <field name="social_insurance_amount"/>
+                </group>
+
+            </xpath>
+        </field>
+    </record>
+
+        <record id="hr_employee_view_form_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='passport_id']" position="after">
+                    <field name="ssn"/>
+                    <field name="driving_licenes"/>
+
+                </xpath>
+            </field>
+        </record>
+
+
+</odoo>

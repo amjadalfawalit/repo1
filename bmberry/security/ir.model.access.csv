@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+stock_location_log,stock_location_log,model_stock_location_log,,1,1,1,1
+member_choices,member_choices,model_member_choices,,1,1,1,1
+location_type,location_type,model_location_type,,1,1,1,1
+access_warehouse,stock.warehouse,model_stock_warehouse,base.group_portal,1,1,1,1
+access_location,stock.location,model_stock_location,base.group_portal,1,1,1,1
+access_product_category,product.category,stock.model_product_category,base.group_portal,1,1,1,1
+access_product_product,product.product,stock.model_product_product,base.group_portal,1,1,1,1
+access_product_template,product.template,stock.model_product_template,base.group_portal,1,1,1,1
+access_uom_uom,uom.uom,stock.model_uom_uom,base.group_portal,1,1,1,1
+access_stock_picking_type,stock.picking.type,stock.model_stock_picking_type,base.group_portal,1,1,1,1
+access_stock_location_route,stock.location.route,stock.model_stock_location_route,base.group_portal,1,1,1,1
+access_stock_picking,stock.picking,stock.model_stock_picking,base.group_portal,1,1,1,1
+access_stock_move,stock.move,stock.model_stock_move,base.group_portal,1,1,1,1
+access_stock_quant,stock.quant,stock.model_stock_quant,base.group_portal,1,1,1,1

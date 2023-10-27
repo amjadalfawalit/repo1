@@ -1,0 +1,931 @@
+<div class="container">
+
+    <div class="oe_styling_v8">
+        <!-- Nav START -->
+        <div class="position-relative my-5">
+            <div class="row no-gutters shadow-sm" style="border-radius:14px">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light overflow-hidden w-100" style="background-color:#fff !important; border-radius:14px; padding:0px; border:1px solid rgb(0 0 0 / 12%)">
+                    <span class="navbar-brand" style="background-color:#151765; padding:18px 20px 11px 20px; color:white; height:100%"> <i style="font-size: 15px;">by </i>
+                        Ashish<span style="color:red">-</span>Hirpara
+                    </span>
+                    <div class="ml-auto text-right" id="navbarNav">
+                        <ul class="nav navbar-nav ml-auto text-right">
+                        </ul>
+                    </div>
+                    <div class="ml-auto text-right" id="navbarNav">
+                        <ul class="nav navbar-nav ml-auto text-right">
+                            <li class="nav-item" style="padding:17px 10px">
+                                <span class="badge badge-pill badge-primary" style="background-color:#7c7bad; border:1px solid #7c7bbb4f; font-size:14px; color:white; margin:3px; padding-left:23px">
+                                    <i class="fa fa-check-circle position-absolute"
+                                        style="font-size:16px; margin-left:-17px; margin-top:-2px"></i>
+                                    Community
+                                </span>
+                                <span class="badge badge-pill badge-primary" style="background-color:#151765; border:1px solid rgb(144 90 123 / 29%); font-size:14px; color:white; margin:3px; padding-left:23px">
+                                    <i class="fa fa-check-circle position-absolute"
+                                        style="font-size:16px; margin-left:-17px; margin-top:-2px"></i>
+                                    Enterprise
+                                </span>
+                                <span class="badge badge-pill badge-primary" style="background-color:#330033; border:1px solid rgb(144 90 123 / 29%); font-size:14px; color:white; margin:3px; padding-left:23px">
+                                    <i class="fa fa-check-circle position-absolute"
+                                        style="font-size:16px; margin-left:-17px; margin-top:-2px"></i>
+                                    Odoo.sh
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Nav END -->
+        <!-- main intro -->
+        <div class="position-relative">
+            <div class="row pb32 pt32 align-items-center bg-white my-5 shadow" style="border-radius:14px">
+                <div class="col-12">
+                    <h2 class="oe_slogan mb32" style="color:#151765; font-family:Montserrat; font-weight:700; text-align:center; text-transform:uppercase; margin-bottom:18px; margin-top:18px">
+                        Simplified Access Management
+                    </h2>
+                    <br/>
+                    <h3 style="color:#3c4858; text-align:center; margin-bottom:18px">
+                        <span style="color:#E5202B">
+                            "All In One Access Management app for setting the correct access rights <b>(Hide/Unhide/Read-only) </b> on
+                            <span style="text-decoration: underline 3px blue;">fields</span>, <span style="text-decoration: underline 3px blue;">models</span>, <span style="text-decoration: underline 3px blue;">menus</span>, <span style="text-decoration: underline 3px blue;">domains</span>, <span style="text-decoration: underline 3px blue;">buttons/tabs</span>, <span style="text-decoration: underline 3px blue;">views</span>, <span style="text-decoration: underline 3px blue;">actions</span>, <span style="text-decoration: underline 3px blue;">reports</span> for any module and for any user from one place!"
+                        </span>
+                    </h3>
+                    <br/>
+                    <p class="mb16 mt32 text-black-dark px-3" style="font-family:Roboto; text-align:justify; font-weight:normal; color:#434647; font-size:18px">
+                        Configuring correct access rights in Odoo is quite technical and lengthy process for someone who has little experience with the system and can get messy if you are not sure what you are doing. This module helps you to avoid all these complexities and saves your precious time by providing you a user friendly
+                        interface from where you can define all the access settings to specific users in one place such as - </p>
+                    <div class="container">
+                        <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                            <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                            <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">Model/App access : Block/Hide Reports, Actions, Views, Import/Export feature. Make models read-only. Block the Create, Write/Update, Delete, and Archive Operations.
+                                </span>
+                        </div>
+                        <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                            <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                            <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">Fields access : Option to make any fields Invisible or Readonly  for any models/apps (including 3rd party apps) on any view.
+                                </span>
+                        </div>
+                        <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                            <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                            <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">Hide Menu/Submenu : Hide any menu/submenu for any model/app for specific users.
+                                </span>
+                        </div>
+                        <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                            <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                            <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">Hide Views : Hide any view such as Tree view, Form view, Kanban view,
+                                    Calendar view, Pivot & Graph view, etc.
+                                </span>
+                        </div>
+                        <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                            <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                            <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">Hide Buttons/tabs : Make the object/actions/smart buttons invisible from any model. Also, a number of tabs can also be hidden from the form view for any app.
+                                </span>
+                        </div>
+
+                        <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                            <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                            <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">Domain Access : Set read/update/create/delete access for specific users for any model. Set a domain to allow access model's records for specific user only.
+                                </span>
+                        </div>
+                        
+                        <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                            <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                            <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">Or, make any user Read-only (Block update/create/delete process for all the Apps)
+                                </span>
+                        </div>
+                    </div>
+                    <p class="my-4 text-black-dark px-3" style="font-family:Roboto; text-align:justify; font-weight:normal; color:#434647; font-size:18px">
+                        <b>Also the app allows you to create user-wise access management so that you can add/remove users to and from any group(s) in batch and with much ease without any coding in very less time. And this works with all the base and 3rd party apps.</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- features highlight -->
+        <section class="oe_container pb-5">
+            <div class="mt64 mb64 pt16">
+                <h2 style="color:#151765; font-family:'Montserrat'; text-align:center; margin:25px auto; text-transform:uppercase" class="oe_slogan mt32">
+                    <b>Highlights</b>
+                </h2>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 mt32">
+                        <div class="container shadow" style="border-radius:10px; padding:10px 0px; height:100%">
+                            <div class="col-md-3 pt32 text-center" style="float:left">
+                                <img class="img img-responsive" src="sn_assets/2.png" alt="Fields Access Right">
+                            </div>
+                            <div class="col-md-9" style="padding-left:0; float:left; width:70%">
+                                <h3 class="mt16 mb0" style="font-family:Roboto; font-weight:500; font-size:20px">Fields Access
+                                </h3>
+                                <p class=" mt8" style="font-family:Roboto">
+                                    You can manage access of fields for any user. By this, you can make any fields read-only or invisible with just one click.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt32">
+                        <div class="container shadow" style="border-radius:10px; padding:10px 0px; height:100%">
+                            <div class="col-md-3 pt32 text-center" style="float:left">
+                                <img class="img img-responsive" src="sn_assets/3.png" alt="Menu Access Rights">
+                            </div>
+                            <div class="col-md-9" style="padding-left:0; float:left; width:70%">
+                                <h3 class="mt16 mb0" style="font-family:Roboto; font-weight:500; font-size:20px">Hide Menu/Sub-menu
+                                </h3>
+                                <p class=" mt8" style="font-family:Roboto">
+                                    You can manage access of menus for any user. By this, you can hide menus and submenus of any app.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt32">
+                        <div class="container shadow" style="border-radius:10px; padding:10px 0px; height:100%">
+                            <div class="col-md-3 pt32 text-center" style="float:left">
+                                <img class="img img-responsive" src="sn_assets/1.png" alt="Model Access Rights">
+                            </div>
+                            <div class="col-md-9" style="padding-left:0; float:left; width:70%">
+                                <h3 class="mt16 mb0" style="font-family:Roboto; font-weight:500; font-size:20px">Model Access
+                                </h3>
+                                <p class=" mt8" style="font-family:Roboto">
+                                    You can manage access of models/apps for any user. By this, you can changes access of actions, create, write, views, export, delete for the specified app.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt32">
+                        <div class="container shadow" style="border-radius:10px; padding:10px 0px; height:100%">
+                            <div class="col-md-3 pt32 text-center" style="float:left">
+                                <img class="img img-responsive" src="sn_assets/5.png" alt="Domain Access Rights">
+                            </div>
+                            <div class="col-md-9" style="padding-left:0; float:left; width:70%">
+                                <h3 class="mt16 mb0" style="font-family:Roboto; font-weight:500; font-size:20px">Domain Access
+                                </h3>
+                                <p class=" mt8" style="font-family:Roboto">
+                                    You can set read, update, create, delete access for selected users of model. Here you can set domain to access models record for selected user.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt32">
+                        <div class="container shadow" style="border-radius:10px; padding:10px 0px; height:100%">
+                            <div class="col-md-3 pt32 text-center" style="float:left">
+                                <img class="img img-responsive" src="sn_assets/6.png" alt="Buttons/Tab Access Rights">
+                            </div>
+                            <div class="col-md-9" style="padding-left:0; float:left; width:70%">
+                                <h3 class="mt16 mb0" style="font-family:Roboto; font-weight:500; font-size:20px">Buttons/Tab Access
+                                </h3>
+                                <p class=" mt8" style="font-family:Roboto">
+                                    You can make the object, actions, smart buttons invisible from the model. And a number of tabs can also be hidden from the form view.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 mt32">
+                        <div class="container shadow" style="border-radius:10px; padding:10px 0px; height:100%">
+                            <div class="col-md-3 pt32 text-center" style="float:left">
+                                <img class="img img-responsive" src="sn_assets/4.png" alt="Readonly user">
+                            </div>
+                            <div class="col-md-9" style="padding-left:0; float:left; width:70%">
+                                <h3 class="mt16 mb0" style="font-family:Roboto; font-weight:500; font-size:20px">Readonly User
+                                </h3>
+                                <p class=" mt8" style="font-family:Roboto">
+                                    You can make any user readonly with just one click, After that specified user can't modify anything in the system.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- tabs -->
+        <section class="info-tabs">
+            <div>
+                <div class="tabs">
+                    <div class="justify-content-center d-flex">
+                        <!-- Nav pills -->
+                        <ul class="nav my-3 o_tab_nav justify-content-center" style="border-radius:6px 6px; background-color:transparent">
+                            <li class="nav-item mx-1" style="border-radius:6px 0 0 6px">
+                                <a class="nav-link px-md-4 list-group-item-default list-group-item-action" data-toggle="pill" href="#pills-guide" style="border-radius:6px; opacity:1; padding:16px">USERGUIDE</a>
+                            </li>
+                            <li class="nav-item mx-1">
+                                <a class="nav-link px-md-4 list-group-item-default list-group-item-action active" data-toggle="pill" href="#pills-screenshot" style="border-radius:6px; opacity:1; padding:16px">DEMO</a>
+                            </li>
+                            <li class="nav-item mx-1">
+                                <a class="nav-link px-md-4 list-group-item-default list-group-item-action" data-toggle="pill" href="#pills-faqs" style="border-radius:6px; opacity:1; padding:16px">FAQs</a>
+                            </li>
+                            <li class="nav-item mx-1">
+                                <a class="nav-link px-md-4 list-group-item-default list-group-item-action" data-toggle="pill" href="#pills-release" style="border-radius:6px; opacity:1; padding:16px">RELEASES</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content shadow" style="border-radius:10px; padding:10px 0px" id="pills-tabContent">
+                        <div class="tab-pane fade" id="pills-guide" role="tabpanel" aria-labelledby="pills-guide-tab">
+                            <div class="screenshot-description" style="margin:1% 3%">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <h3 class="text-center alert" style="font-weight:bold; color:#091E42; border-radius:10px; background-color:#F0F4F7">After installing this module, You need to enable user group named 'Access management' for users, who you want to allow to run this app.</h3>
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important;border: 2px solid #3592f2;">
+                                        <ul class="mt32 mb-0 text-left list-unstyled">
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> First go to > Settings > Users > than check <b>Access Management</b> checkbox.
+                                                </span>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="img img-fluid oe_screenshot" style="width:90%; margin:2%" src="sn_assets/screenshots/2_access_user_group.png" alt="screenshot-0">
+                            </div>
+
+                            <div class="screenshot-description" style="margin:1% 3%">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <h3 class="text-center alert" style="font-weight:bold; color:#091E42; border-radius:10px; background-color:#F0F4F7">Now, open the app access studio.</h3>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="img img-fluid oe_screenshot" style="width:90%; margin:2%" src="sn_assets/screenshots/4_visible_menu.png" alt="screenshot-0">
+                            </div>
+                            <!-- Fields explain -->
+                            <div class="screenshot-description" style="margin:1% 3%">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <h3 class="text-center alert" style="font-weight:bold; color:#091E42; border-radius:10px; background-color:#F0F4F7">Here is the basic explanation of rules configration.</h3>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="img img-fluid oe_screenshot" style="width:90%; margin:2%" src="sn_assets/screenshots/5_fields_intro.png" alt="screenshot-0">
+                            </div>
+                            <!-- Access Explain -->
+                            <div class="screenshot-description" style="margin:1% 3%">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <h3 class="text-center alert" style="font-weight:bold; color:#091E42; border-radius:10px; background-color:#F0F4F7">Now, the app has a number of features available to manage its access.</h3>
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important;border: 2px solid #3592f2;">
+                                        <ul class="mt32 mb-0 text-left list-unstyled">
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> <b> Menu access : </b>
+                                                Selected menu will become invisible for users who are selected in the ‘Users’ field.
+                                                </span>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="img img-fluid oe_screenshot" style="width:90%; margin:2%" src="sn_assets/screenshots/14_before.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="img img-fluid oe_screenshot" style="width:90%; margin:2%" src="sn_assets/screenshots/14_after1.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="img img-fluid oe_screenshot" style="width:90%; margin:2%" src="sn_assets/screenshots/14_after2.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot-description" style="margin:1% 3%">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important;border: 2px solid #3592f2;">
+                                        <ul class="mt32 mb-0 text-left list-unstyled">
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> <b>Model Access: </b>
+                                                    <span>Reports, actions, views can be invisible. Also, ristrict export records of model for users.</span>
+                                                </span>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/15_before.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/15_after1.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/15_after2.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot-description" style="margin:1% 3%">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important;border: 2px solid #3592f2;">
+                                        <ul class="mt32 mb-0 text-left list-unstyled">
+                                            <li>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">Ristrict <b>export</b> and <b>actions</b> from the selected user.
+                                                </span>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/16_before.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/16_after1.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/16_after2.png" alt="screenshot-0">
+                            </div>
+                            <!-- Field Access -->
+                            <div class="screenshot-description" style="margin:1% 3%">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important;border: 2px solid #3592f2;">
+                                        <ul class="mt32 mb-0 text-left list-unstyled">
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">Field Access : Set invisible or read-only fields of model for any users with
+                                                    field access.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/8_field_access.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/8_field_access.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/8_field_access.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/8_field_access.png" alt="screenshot-0">
+                            </div>
+                            <!-- Domain Access -->
+                            <div class="screenshot-description" style="margin:1% 3%">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important;border: 2px solid #3592f2;">
+                                        <ul class="mt32 mb-0 text-left list-unstyled">
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">Domain Access : Set read/update/delete access for selected users of
+                                                    model.
+                                                </span>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/17_before.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/17_after1.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/18_access_setting2.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="pb-3 img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/17_after2.png" alt="screenshot-0">
+                            </div>
+
+                            <!-- Button Access -->
+                            <div class="screenshot-description" style="margin:1% 3%">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important;border: 2px solid #3592f2;">
+                                        <ul class="mt32 mb-0 text-left list-unstyled">
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> Button/Tab Access : Invisible object/action/smart buttons from model. Also, number
+                                                    of tabs can be hidden of form view.
+                                                </span>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center;">
+                                <img class="img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/19_before.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/19_after1.png" alt="screenshot-0">
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <img class="img img-fluid oe_screenshot" style="width:90%; margin:2%;border-bottom: 4px solid #bababa;" src="sn_assets/screenshots/19_after2.png" alt="screenshot-0">
+                            </div>
+
+                        </div>
+                        <!-- screenshots tab -->
+                        <div class="tab-pane fade  active show text-center" id="pills-screenshot" role="tabpanel" aria-labelledby="pills-screenshot-tab">
+                            <div class="screenshot-description" style="margin:1% 3%">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <h3 class="text-center alert" style="font-weight:bold; color:#091E42; border-radius:10px; background-color:#F0F4F7"> Module Setup</h3>
+
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <video width="100%" height="auto" controls="">
+                                    <source src="sn_assets/videos/setup-process.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+
+                            </div>
+                            <div class="screenshot-description" style="margin:1% 3%">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important;">
+                                        <ul class="text-left list-unstyled">
+                                            <li class="mt-4">
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle;">The main advantage of these features is that when the admin user wants to do changes to access rights of other child users. but for that, they should need the technical knowledge to do these changes. So, here it has been simplified. Any normal user who doesn't have any technical knowledge is just needed to understand this module's feature and then just need to make one rule and its configuration. No coding/XML changes will be required.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- field access rughts -->
+                            <div class="screenshot-description" style="margin:1% 3%">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <h3 class="text-center alert" style="font-weight:bold; color:#091E42; border-radius:10px; background-color:#F0F4F7">Field's Access Right Setup</h3>
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                                        <ul class="text-left list-unstyled">
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You can customize specified model/app field access for any user.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You can make the field read-only.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You can make the field invisible.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You just select the model and its field than check the access which you want to restrict.
+                                                </span>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <video width="100%" height="auto" controls="">
+                                    <source src="sn_assets/videos/Field-hide.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <!-- models access right -->
+                            <div class="screenshot-description" style="margin-top:5%; margin-bottom:1%; margin-left:3%; margin-right:3%;">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <h3 class="text-center alert" style="font-weight:bold; color:#091E42; border-radius:10px; background-color:#F0F4F7">Model/View Access Right Setup</h3>
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                                        <ul class="mt32 mb-0 text-left list-unstyled">
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> You can customize specified models access for any user.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You can restrict models'/apps' all Actions, Report print, Archive action, etc.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You can restrict models all Views.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> You can restrict Create, Edit, Delete for any app.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You can restrict Export & Import in any app.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You can make any view invisible.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> You just select a model and then check its features/view to restrict.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <video width="100%" height="auto" controls="">
+                                    <source src="sn_assets/videos/Model-hide.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <!-- menu access right -->
+                            <div class="screenshot-description" style="margin-top:5%; margin-bottom:1%; margin-left:3%; margin-right:3%;">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <h3 class="text-center alert" style="font-weight:bold; color:#091E42; border-radius:10px; background-color:#F0F4F7">Menu/Submenu Access Right Setup</h3>
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                                        <ul class="mt32 mb-0 text-left list-unstyled">
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> You can customize menu access for any user.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> You can hide any Menu for any app/model.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> You can hide any Sub-Menu for any app/model.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You just have to select menu for any app, then it will hide that menu/submenu for perticular user.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <video width="100%" height="auto" controls="">
+                                    <source src="sn_assets/videos/Menu-hide.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <!-- Domain access right -->
+                            <div class="screenshot-description" style="margin-top:5%; margin-bottom:1%; margin-left:3%; margin-right:3%;">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <h3 class="text-center alert" style="font-weight:bold; color:#091E42; border-radius:10px; background-color:#F0F4F7">
+                                        Domain Access Right Setup</h3>
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                                        <ul class="mt32 mb-0 text-left list-unstyled">
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> Set read, write, update, delete access for selected users of model.
+                                                </span></li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> Set domain filter to show only filtered records to the user.
+                                                </span></li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">Set read, write, delete access using Environment User<b>(EU means logged in user.)</b> or other users.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You can create model wise multiple lines access rights. it will affect all selected users.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <video width="100%" height="auto" controls="">
+                                    <source src="sn_assets/videos/Domain-access.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                                <ul class="mt32 mb-0 text-left list-unstyled">
+                                    <li>
+                                        <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> Set Model access using filters and use of Environment User(logged in user).
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <video width="100%" height="auto" controls="">
+                                    <source src="sn_assets/videos/Domain-access-1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <!-- buttons/tab access right -->
+                            <div class="screenshot-description" style="margin-top:5%; margin-bottom:1%; margin-left:3%; margin-right:3%;">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <h3 class="text-center alert" style="font-weight:bold; color:#091E42; border-radius:10px; background-color:#F0F4F7">
+                                        Buttons/Tabs access right setup</h3>
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                                        <ul class="mt32 mb-0 text-left list-unstyled">
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You can make invisible object buttons, actions, smart buttons, from model. Also, number of tabs can be hidden of form view.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You can hide any object button of any model by just on setting.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You can hide any smart button of any model by just on setting.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You can hide any actions of any model by just on setting.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">You can hide number of tabs in form view from selected user.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <video width="100%" height="auto" controls="">
+                                    <source src="sn_assets/videos/Button-Tab-Access.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <!-- Read only user -->
+                            <div class="screenshot-description" style="margin-top:5%; margin-bottom:1%; margin-left:3%; margin-right:3%;">
+                                <div style="border-radius:10px; background-color:#f9f9f9">
+                                    <h3 class="text-center alert" style="font-weight:bold; color:#091E42; border-radius:10px; background-color:#F0F4F7">
+                                        Readonly User Setup</h3>
+                                    <div class="my-2 sh_icon d-flex align-items-center rounded shadow-sm" style="padding:15px; background-color:#ebf0fb; border-radius:0.25rem !important">
+                                        <ul class="mt32 mb-0 text-left list-unstyled">
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> You can make users readonly.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">Readonly users can not modify anything in the system.
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px">Readonly users cant create any data, modify any settings, install/uninstall any app or delete any records in the system.
+                                                </span>
+
+                                            </li>
+                                            <li>
+                                                <span class="fa fa-arrow-right" style="color:#3363c1; font-weight:600; font-size:18px; padding-right:10px"></span>
+                                                <span style="color:#212121; font-weight:600; vertical-align:middle; padding-left:10px"> With just one checkbox any user will set to readonly.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="screenshot" style="text-align:center">
+                                <video width="100%" height="auto" controls="">
+                                    <source src="sn_assets/videos/readonly-user.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <!-- faq tab -->
+                        <div class="tab-pane fade" id="pills-faqs" role="tabpanel" aria-labelledby="pills-faqs-tab">
+                            <div class="s_faq mt32 mb32" style="background-color:transparent !important; padding:0px 50px">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel-group" style="border:1px solid #ddd; border-radius:10px; margin-bottom:20px">
+                                        <div class="panel panel-default" style="padding:15px 15px; border-radius:10px">
+                                            <div class="panel-heading mt0" style="border:1px solid transparent !important">
+                                                <h4 class="panel-title" style="margin:0">
+                                                    <a class="collapsed" style="color:#000; font-size:20px; font-weight:500; font-family:Roboto; padding:15px 15px 15px 50px; line-height:158%" data-toggle="collapse" href="#collapse7" aria-expanded="false">
+                                                        <span class="panelcontent">
+                                                            Why should I use this app?
+                                                        </span>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse7" style="background-color:rgb(240, 244, 247); padding:15px" class="panel-collapse collapse">
+                                                <div>
+                                                    <p class="mb0" style="height:auto; font-family:Roboto; padding-left:2%; margin-left:2%">
+                                                        This module allows you to setup userwise access management easily and quickly. Such as Model access (Report, Actions, Views, Readonly, Create, Write, Delete, Export etc.), Fields access (Invisible, Readonly),Menu access(Hide any menu for selected users),
+                                                        Domain access(read, write, update, delete access for selected users of model), Buttons/tab access(Invisible object/action/smart buttons from model. Also, number of tabs can be hidden
+                                                        of form view), make selected users readonly easily and in one place.
+                                                        <br /> <b>So if you don't want to call developer 		now and then to setup access rights or you don't
+                                                            want any hassel to setup the access rights by
+                                                            odoo's technical and lengthy way,
+                                                            then this is the only perfect app for you which supports almost all the objects you could use in the odoo. </b>
+
+                                                            <br /><br /> <b> Some main advantages:-</b>
+                                                            All in one access management App,
+                                                            Easier then Record rules setup,
+                                                            Centralize access rules,
+                                                            User wise access rules,
+                                                            Show only what is needed for users,
+                                                            Access rules setup,
+                                                            Easy access rights setup, Hide Any Menu, 
+                                                            Hide Any Field, Any Report, Any Button,
+                                                            Easy To Configure,
+
+                                                            <br /><br /> <b>Some main features:-</b>
+                                                            Hide fields,
+                                                            Hide Buttons,
+                                                            Hide Tabs,
+                                                            Hide views,
+                                                            Hide Contacts,
+                                                            Hide Menus,
+                                                            Hide submenus,
+                                                            Hide sub-menus,
+                                                            Hide reports,
+                                                            Hide actions,
+                                                            Hide server actions,
+                                                            Hide import,
+                                                            Hide delete,
+                                                            Hide archive,
+                                                            Hide Tree view, 
+                                                            Hide Form view, 
+                                                            Hide Kanban view, 
+                                                            Hide Calendar view, 
+                                                            Hide Pivot,
+                                                            Hide Graph view,
+                                                            Hide Apps,
+                                                            Hide object buttons,
+                                                            Hide action buttons,
+                                                            Hide smart buttons,
+                                                            Readonly Any Field,
+                                                            read only user,
+                                                            readonly user,
+                                                            Hide create,
+                                                            Hide duplicate,
+                                                            Control every fields,
+                                                            Control every views,
+                                                            Control every buttons,
+                                                            Control every actions.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="panel-group" style="border:1px solid #ddd; border-radius:10px; margin-bottom:20px">
+                                        <div class="panel panel-default" style="padding:15px 15px; border-radius:10px">
+                                            <div class="panel-heading mt0" style="border:1px solid transparent !important">
+                                                <h4 class="panel-title" style="margin:0">
+                                                    <a class="collapsed" style="color:#000; font-size:20px; font-weight:500; font-family:Roboto; padding:15px 15px 15px 50px; line-height:158%" data-toggle="collapse" href="#collapse2" aria-expanded="false">
+                                                        <span class="panelcontent">
+                                                            Will this app supports any 3rd party apps?
+                                                        </span>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse2" style="background-color:rgb(240, 244, 247); padding:15px" class="panel-collapse collapse">
+                                                <div>
+                                                    <p class="mb0" style="height:auto; font-family:Roboto; padding-left:2%; margin-left:2%">
+                                                        Yes, absolutly.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="panel-group" style="border:1px solid #ddd; border-radius:10px; margin-bottom:20px">
+                                        <div class="panel panel-default" style="padding:15px 15px; border-radius:10px">
+                                            <div class="panel-heading mt0" style="border:1px solid transparent !important">
+                                                <h4 class="panel-title" style="margin:0">
+                                                    <a class="collapsed" style="color:#000; font-size:20px; font-weight:500; font-family:Roboto; padding:15px 15px 15px 50px; line-height:158%" data-toggle="collapse" href="#collapse4" aria-expanded="false">
+                                                        <span class="panelcontent">
+                                                            Need some customization in this app or have
+                                                            questions regarding this app, whom can I
+                                                            contact?
+                                                        </span>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse4" style="background-color:rgb(240, 244, 247); padding:15px" class="panel-collapse collapse">
+                                                <div>
+                                                    <p class="mb0" style="height:auto; font-family:Roboto; padding-left:2%; margin-left:2%">
+                                                        Please drop an email at hello@ashish-hirpara.com
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-group" style="border:1px solid #ddd; border-radius:10px; margin-bottom:20px">
+                                        <div class="panel panel-default" style="padding:15px 15px; border-radius:10px">
+                                            <div class="panel-heading mt0" style="border:1px solid transparent !important">
+                                                <h4 class="panel-title" style="margin:0">
+                                                    <a class="collapsed" style="color:#000; font-size:20px; font-weight:500; font-family:Roboto; padding:15px 15px 15px 50px; line-height:158%" data-toggle="collapse" href="#collapse6" aria-expanded="false">
+                                                        <span class="panelcontent">
+                                                            What is the Support Policy for this App?
+                                                        </span>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapse6" style="background-color:rgb(240, 244, 247); padding:15px" class="panel-collapse collapse">
+                                                <div>
+                                                    <p class="mb0" style="height:auto; font-family:Roboto; padding-left:2%; margin-left:2%">
+                                                        In case of if any bug or issue raised in the listed features of this app, I am committed to providing support free of cost for 90 days. You will need to provide me complete details, server ssh access or database access in order to solve the issue. You
+                                                        have to raise a support ticket from your order in odoo store.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- release tab -->
+                        <div class="tab-pane  px-0 px-sm-5 fade" id="pills-release" style="padding-top:0.25rem !important" role="tabpanel" aria-labelledby="pills-release-tab">
+                            <div class="row my-4 p-3 pb-2 position-relative">
+                                <div class="col-12 p-4 shadow-sm bg-white">
+                                    <h2>Changelog(s)</h2>
+                                    <hr class="mb-4 mt-0">
+                                    <!-- v15.0.2.0.0 -->
+                                    <h2 class="h4 pb-2">
+                                        <span style="color:#00B5DB" class="pr-2">v15.0.2.0.0</span>-<span class="pl-2">
+                                            March 28, 2022</span>
+                                    </h2>
+                                    <!-- <ul class="list-unstyled"> -->
+                                        <!-- <li class="d-flex align-items-start mb-3"> -->
+                                            <div class="s_faq mt8 mb32" style="background-color:transparent !important; padding:0px 0px">
+                                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                    <div class="panel-group" style="border:1px solid #ddd; border-radius:10px; margin-bottom:20px">
+                                                        <div class="panel panel-default" style="padding:15px 15px; border-radius:10px">
+                                                            <div class="panel-heading mt0" style="border:1px solid transparent !important">
+                                                                <h4 class="panel-title" style="margin:0">
+                                                                    <a class="collapsed" style="color:#000; font-size:20px; font-weight:500; font-family:Roboto; padding:15px 15px 15px 50px; line-height:158%" data-toggle="collapse" href="#collapse2" aria-expanded="false">
+                                                                        <span class="panelcontent">
+                                                                            Release notes 
+                                                                        </span>
+                                                                    </a>
+                                                                </h4>
+                                                            </div>
+                                                            <div id="collapse2" style="background-color:rgb(240, 244, 247); padding:15px" class="panel-collapse collapse">
+                                                                <div>
+                                                                    <p class="mb0" style="height:auto; font-family:Roboto; padding-left:2%; margin-left:2%">
+                                                                        <ul>
+                                                                            <li> Added support to hide tabs and buttons (object/actions/smart)</li>
+
+                                                                            <li> Added support to block the import, export</li>
+
+                                                                            <li> Added feature of access based on domain</li>
+
+                                                                            <li> Added smart details on access management form and list view</li>
+
+                                                                            <li> minor bug fix</li>
+
+                                                                            <li><b>note:</b> This version have major changes in codebase, so you need to uninstall the previous version (if purchased earlier) and install the new version.</li>
+
+                                                                        </ul>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <!-- </li> -->
+                                    <!-- </ul> -->
+
+
+                                        <!-- v15.0.1.0.0 -->
+                                        <h2 class="h4 pb-2">
+                                        <span style="color:#00B5DB" class="pr-2">v15.0.1.0.0</span>-<span class="pl-2">
+                                            October 23, 2021</span>
+                                    </h2>
+                                    <ul class="list-unstyled">
+                                        <li class="d-flex align-items-start mb-3">
+                                            Initial release for v15
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- tabs end -->
+        <!-- Help START -->
+        <div class="row pb16 pt-5 mb-5">
+            <div class="alert alert-warning text-center w-100" style="padding:21px 51px; background-color:#ffffff; border:1px solid #dee2e6; color:#414d5c; margin:auto; display:block; border-radius:1px; min-width:90%; border-top:3px solid #151765">
+                <div>
+                    <div style="background-color:rgb(255 164 0 / 12%); color:#151765" class="badge border-0 rounded-circle p-3">
+                        <i class="fa fa-question-circle fa-2x"></i>
+                    </div>
+                </div>
+                <h2 style="color:#3c4858" class="mt-2 mb-4">
+                    Need a help for this module?
+                </h2>
+                <h4 style="color:#3c4858; font-weight:400" class="mt-2 mb-4">
+                    Contact me
+                    <b style="color:#151765; background-color:#e0f0ff; padding:3px 10px; border-radius:3px">hello@ashish-hirpara.com</b> for your queries
+                </h4>
+            </div>
+        </div>
+        <!-- Help END -->
+    </div>
+</div>

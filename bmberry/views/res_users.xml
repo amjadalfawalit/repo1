@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_location_security_users_form" model="ir.ui.view">
+            <field name="name">location_security.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[2]" position="after">
+                    <notebook name="allowed_locations" string="Allowed Locations">
+                        <group string="Locations" >
+                            <field name="restrict_locations"/>
+                            <field name="only_members"/>
+                        </group>
+                        <page>
+                            <field name="warehouse_ids" nolabel="1" colspan="2" attrs="{'invisible': [('restrict_locations','!=', True)]}"/>
+                        </page>
+                    </notebook>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

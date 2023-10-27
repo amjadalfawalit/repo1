@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_payroll_salary_structure_emp_base_type" model="hr.payroll.structure.type">
+            <field name="name">Base Structure</field>
+        </record>
+
+        <record id="hr_payroll_salary_structure_emp_base" model="hr.payroll.structure">
+            <field name="name">Base Structure</field>
+            <field name="type_id" ref="hr_payroll_salary_structure_emp_base_type"/>
+        </record>
+
+        <record id="hr_rule_input_actual_work_hours" model="hr.payslip.input.type">
+            <field name="name">Actual Work Hours Input</field>
+            <field name="code">ACTWRKHINPT</field>
+        </record>
+
+    </data>
+</odoo>
